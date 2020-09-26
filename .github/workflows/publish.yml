@@ -21,6 +21,7 @@ jobs:
             
       - name: Packs files
         working-directory: ${{ github.workspace }}/packages
+        shell: bash
         run: |
             unzip pes-fmdl-blender-2-79.zip
             ls -la
