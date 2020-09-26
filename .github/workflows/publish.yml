@@ -13,14 +13,16 @@ jobs:
 
       - name: Prepares working directory
         working-directory: ${{ github.workspace }}
-        run: |
-            zip -r pes-fmdl-blender-2-79.zip pes-fmdl && mkdir packages && mv pes-fmdl-blender-2-79.zip packages
-            
-      - name: Packs files
+        run: mkdir packages && mkdir packages/pes-fmdl && cp -R pes-fmdl packages/pes-fmdl
+           
+      - name: Pack 2.7
         working-directory: ${{ github.workspace }}/packages
-        run: |
-            unzip pes-fmdl-blender-2-79.zip && mv pes-fmdl/pes-fmdl/__init__2-8x.py pes-fmdl/__init__.py && zip -r pes-fmdl-blender-2-8x.zip pes-fmdl && zip -d pes-fmdl-blender-2-79.zip pes-fmdl/__init_2-8x.py
-        
+        run: zip -r pes-fmdl-blender-2-79.zip pes-fmdl && zip -d pes-fmdl-blender-2-79.zip pes-fmdl/__init__2-8.py
+
+      - name: Pack 2.8
+        working-directory: ${{ github.workspace }}/packages
+        run: mv pes-fmdl/__init__2-8x.py pes-fmdl/__init__.py && zip -r pes-fmdl-blender-2-8x.zip 
+
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
