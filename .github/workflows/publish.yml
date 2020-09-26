@@ -21,7 +21,7 @@ jobs:
 
       - name: Pack 2.8
         working-directory: ${{ github.workspace }}/packages
-        run: mv pes-fmdl/__init__2-8x.py pes-fmdl/__init__.py && zip -r pes-fmdl-blender-2-8x.zip 
+        run: mv pes-fmdl/__init__2-8x.py pes-fmdl/__init__.py && zip -r pes-fmdl-blender-2-8x.zip pes-fmdl
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
