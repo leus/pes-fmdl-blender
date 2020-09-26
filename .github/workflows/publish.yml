@@ -13,11 +13,11 @@ jobs:
 
       - name: Prepares working directory
         working-directory: ${{ github.workspace }}
-        run: mkdir packages && mkdir packages/pes-fmdl && cp -R pes-fmdl packages/pes-fmdl
+        run: mkdir packages && cp -R pes-fmdl packages/
            
       - name: Pack 2.7
         working-directory: ${{ github.workspace }}/packages
-        run: zip -r pes-fmdl-blender-2-79.zip pes-fmdl && zip -d pes-fmdl-blender-2-79.zip pes-fmdl/__init__2-8.py
+        run: zip -r pes-fmdl-blender-2-79.zip pes-fmdl && zip -d pes-fmdl-blender-2-79.zip pes-fmdl/__init__2-8x.py
 
       - name: Pack 2.8
         working-directory: ${{ github.workspace }}/packages
