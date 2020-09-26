@@ -25,6 +25,7 @@ jobs:
             unzip pes-fmdl-blender-2-79.zip
             ls -la
             ls -la pes-fmdl/*
+            cwd
             mv pes-fmdl/__init_2-8x.py pes-fmdl/__init__.py
             ls -la
             zip -r pes-fmdl-blender-2-8x.zip pes-fmdl
